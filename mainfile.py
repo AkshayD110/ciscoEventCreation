@@ -1,12 +1,11 @@
-from ciscosparkapi import CiscoSparkAPI
-import sys
+
 import eventCreator
 
 def main():
-    try:
-        msg_count = int("Enter the number of messages you want to create")
-    except ValueError:
-        print("Please enter an int value")
+    number_of_msgsToCreate = int(input("How many messages do you want to create?"))
 
-    eventCreator_obj = eventCreator.eventCreator(msg_count)
+    eventCreator_obj = eventCreator.eventCreator(number_of_msgsToCreate)
     eventCreator_obj.msg_distribution()
+
+if __name__ == '__main__':
+    main()
