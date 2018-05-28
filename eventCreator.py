@@ -19,9 +19,7 @@ class eventCreator:
         self._msgcount = msgcount
 
     access_token = "Bearer "+str(sys.argv[1])
-    print(access_token)
     room_id = sys.argv[2]
-    print(room_id)
 
     def msg_distribution(self):
         normaltext_count = round((self.msgcount*80)/100)
