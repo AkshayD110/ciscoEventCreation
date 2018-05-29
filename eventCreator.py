@@ -18,13 +18,17 @@ class eventCreator:
     def msgcount(self, msgcount):
         self._msgcount = msgcount
 
+    #Below section is required to make connection to CiscoSpark
     access_token = "Bearer "+str(sys.argv[1])
     room_id = sys.argv[2]
+    api = CiscoSparkAPI(access_token=access_token)
+    demo_room = api.rooms.get(room_id)
 
     def msg_distribution(self):
         normaltext_count = round((self.msgcount*80)/100)
         markdowntext_count = round((self.msgcount*17.5)/100)
         filetransfer_count = round((self.msgcount*1.5)/100)
+
         self.all_restricted_msgs()
         print(f"normal text will be : {normaltext_count}, markdown text will be : {markdowntext_count}, file transfer count will be :{filetransfer_count}")
 
