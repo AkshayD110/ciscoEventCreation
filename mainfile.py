@@ -6,7 +6,10 @@ def main():
 
     eventCreator_obj = eventCreator.eventCreator(number_of_msgsToCreate)
     eventCreator_obj.msg_distribution()
-    print(eventCreator_obj)
+    #eventCreator_obj.normaltext_msg("akshay")
+    #eventCreator_obj.filetrasfer_msg("hi")
+    #eventCreator_obj.markdowntext_msg("check check")
+    print("done")
 
 if __name__ == '__main__':
     main()
