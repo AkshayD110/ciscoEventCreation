@@ -18,7 +18,7 @@ class eventCreator:
     def msgcount(self, msgcount):
         self._msgcount = msgcount
 
- 
+
     accesstoken = "Bearer " + str(sys.argv[1])
     roomid = sys.argv[2]
     api = CiscoSparkAPI(access_token=sys.argv[1])
