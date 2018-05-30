@@ -19,6 +19,7 @@ class eventCreator:
         self._msgcount = msgcount
 
 
+    # include the details in property file
     accesstoken = "Bearer " + str(sys.argv[1])
     roomid = sys.argv[2]
     api = CiscoSparkAPI(access_token=sys.argv[1])
@@ -27,7 +28,7 @@ class eventCreator:
     def msg_distribution(self):
         normaltext_count = round((self.msgcount*80)/100)
         markdowntext_count = round((self.msgcount*17.5)/100)
-        filetransfer_count = round((self.msgcount*15)/100)
+        filetransfer_count = round((self.msgcount*1.5)/100)
         print(f"normal text will be : {normaltext_count}, markdown text will be : {markdowntext_count}, file transfer count will be :{filetransfer_count}")
 
         for i in range(normaltext_count):
@@ -57,7 +58,4 @@ class eventCreator:
         restricted_markdown = round((restrictedwords_count * 0.25) / 100)
         restricted_files =  round((restrictedwords_count * 0.25) / 100)
         print(f"this is restricted phrase section : {restrictedwords_count}")
-
-
-
 
