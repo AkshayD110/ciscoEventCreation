@@ -38,9 +38,6 @@ class eventCreator:
         t2 = threading.Thread(target=self.markdowntext_msg(f"msg here : ", markdowntext_count)).start()
         t3 = threading.Thread(target=self.filetrasfer_msg(f"msg here : ", filetransfer_count)).start()
         t4 = threading.Thread(target=self.all_restricted_msgs()).start()
-        # self.normaltext_msg(f"msg here : ", normaltext_count)
-        # self.markdowntext_msg(f"msg here : ", markdowntext_count)
-        # self.filetrasfer_msg(f"msg here : ", filetransfer_count)
 
         #self.all_restricted_msgs()
 
