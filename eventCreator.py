@@ -2,6 +2,7 @@ from datetime import datetime
 import sys
 from ciscosparkapi import CiscoSparkAPI
 import threading
+from random import *
 
 class eventCreator:
 
@@ -36,6 +37,7 @@ class eventCreator:
         t1 = threading.Thread(target=self.normaltext_msg(f"msg here : ", normaltext_count)).start()
         t2 = threading.Thread(target=self.markdowntext_msg(f"msg here : ", markdowntext_count)).start()
         t3 = threading.Thread(target=self.filetrasfer_msg(f"msg here : ", filetransfer_count)).start()
+        t4 = threading.Thread(target=self.all_restricted_msgs()).start()
         # self.normaltext_msg(f"msg here : ", normaltext_count)
         # self.markdowntext_msg(f"msg here : ", markdowntext_count)
         # self.filetrasfer_msg(f"msg here : ", filetransfer_count)
@@ -45,22 +47,38 @@ class eventCreator:
 
     def normaltext_msg(self, text, count):
         for i in range(count):
-            message = self.api.messages.create(self.roomid, text=f"This is new - {text} {i}")
+            message = self.api.messages.create(self.roomid, text=f"some generic text here - {text} {i}")
 
     def markdowntext_msg(self, text, count):
         for i in range(count):
-            message = self.api.messages.create(self.roomid, markdown=f"**This is new - {text} {i}**" )
+            message = self.api.messages.create(self.roomid, markdown=f"**some generic text here - {text} {i}**" )
 
     def filetrasfer_msg(self, text, count):
         for i in range(count):
-            message = self.api.messages.create(self.roomid, text="welcome to Python", files=["http://hanassets.nd.gov/images/product/test.png"])
+            message = self.api.messages.create(self.roomid, text="some generic text here ", files=["http://hanassets.nd.gov/images/product/test.png"])
 
 
     def all_restricted_msgs(self):
-        dlp_phrases = ["stock", "salary", "compensation", "money"] #this list needs to be expanded
+        #Generates 40k restricted phrases and picks one
+        listofphrase = [f'ThisIsABigResTrictedPhrase{x}' for x in range(1, 40000)]
+
         restrictedwords_count = round((self.msgcount * 1) / 100)
         restricted_normal = round((restrictedwords_count * 0.5) / 100)
         restricted_markdown = round((restrictedwords_count * 0.25) / 100)
         restricted_files =  round((restrictedwords_count * 0.25) / 100)
-        print(f"this is restricted phrase section : {restrictedwords_count}")
+        print(f"Here are the rest_wordsCount :{restrictedwords_count}, rest_normal :{restricted_normal}, rest_markdown :{restricted_markdown}, rest_files :{restricted_files    }")
+
+        for i in range(restricted_normal):
+            restricted_word = choice(listofphrase)
+            message = self.api.messages.create(self.roomid, text=f"some generic text here and restword : {restricted_word}")
+
+        for i in range(restricted_markdown):
+            restricted_word = choice(listofphrase)
+            message = self.api.messages.create(self.roomid, text=f"**some generic text here and restword : {restricted_word}**")
+
+        for i in range(restricted_files):
+            restricted_word = choice(listofphrase)
+            message = self.api.messages.create(self.roomid, text=f"some generic text here and restword : {restricted_word}")
+
+        print("done with creating restricted phrases")
 
