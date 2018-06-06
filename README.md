@@ -7,3 +7,6 @@ It takes three parameters :
 -- Number of messages to create given as user input param
 
 This tool can create messages at the rate of 150/minute.
+
+Optimizations required :
+- A logging mechanism to check how many messages where created before any error occurs.
