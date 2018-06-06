@@ -67,11 +67,11 @@ class eventCreator:
         #Generates 40k restricted phrases and picks one
         listofphrase = [f'ThisIsABigResTrictedPhrase{x}' for x in range(1, 40000)]
 
-        restrictedwords_count = round((self.msgcount * 80) / 100)
-        restricted_normal = round((restrictedwords_count * 5) / 100)
-        restricted_markdown = round((restrictedwords_count * 5) / 100)
-        restricted_files =  round((restrictedwords_count * 5) / 100)
-        print(f"Here are the rest_wordsCount :{restrictedwords_count}, rest_normal :{restricted_normal}, rest_markdown :{restricted_markdown}, rest_files :{restricted_files    }")
+        restrictedwords_count = round((self.msgcount * 1) / 100)
+        restricted_normal = round((restrictedwords_count * 50) / 100)
+        restricted_markdown = round((restrictedwords_count * 25) / 100)
+        restricted_files =  round((restrictedwords_count * 25) / 100)
+        print(f"Here are the rest_wordsCount :{restrictedwords_count}, restricted_normal :{restricted_normal}, restricted_markdown :{restricted_markdown}, restricted_files :{restricted_files}")
 
         for i in range(restricted_normal):
             restricted_word = choice(listofphrase)
@@ -83,7 +83,7 @@ class eventCreator:
 
         for i in range(restricted_files):
             restricted_word = choice(listofphrase)
-            message = self.api.messages.create(self.roomid, text=f"some generic text here and restword : {restricted_word}", files="http://hanassets.nd.gov/images/product/test.png")
+            message = self.api.messages.create(self.roomid, text=f"some generic text here and restword : {restricted_word}", files=["http://hanassets.nd.gov/images/product/test.png"])
 
         print("done with creating restricted phrases")
 
