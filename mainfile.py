@@ -17,14 +17,15 @@ def main():
     start = time.time()
     eventCreator_obj = eventCreator.eventCreator(number_of_msgsToCreate)
     eventCreator_obj.msg_distribution()
-    print(time.time() - start)
-    logoutput(number_of_msgsToCreate)
+    time_taken = time.time() - start
+    print(time_taken)
+    logoutput(number_of_msgsToCreate, time_taken)
     print("done")
 
-def logoutput(eventsCreated):
+def logoutput(eventsCreated, time_taken):
     currentDateTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     with open("eventCreatedlog.txt", "a") as myfile:
-        myfile.write(f"\n wrote {eventsCreated} new messages on {currentDateTime}")
+        myfile.write(f"\n Wrote {eventsCreated} new messages on {currentDateTime}. Took {time_taken} amount of time to complete")
 
 
 if __name__ == '__main__':
