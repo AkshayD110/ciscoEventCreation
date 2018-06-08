@@ -17,7 +17,7 @@ def main():
     start = time.time()
     eventCreator_obj = eventCreator.eventCreator(number_of_msgsToCreate)
     eventCreator_obj.msg_distribution()
-    time_taken = time.time() - start
+    time_taken = time.time() - start #line 17 and line20 account the time taken between them.
     print(time_taken)
     logoutput(number_of_msgsToCreate, time_taken)
     print("done")
