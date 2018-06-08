@@ -42,6 +42,7 @@ class eventCreator:
         filetransfer_count = round((self.msgcount*1.5)/100)
         print(f"normal text will be : {normaltext_count}, markdown text will be : {markdowntext_count}, file transfer count will be :{filetransfer_count}")
 
+        #below implementaition introduces multiThreading
         t1 = threading.Thread(target=self.normaltext_msg(f"msg here : ", normaltext_count)).start()
         t2 = threading.Thread(target=self.markdowntext_msg(f"msg here : ", markdowntext_count)).start()
         t3 = threading.Thread(target=self.filetrasfer_msg(f"msg here : ", filetransfer_count)).start()
