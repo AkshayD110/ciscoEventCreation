@@ -12,3 +12,4 @@ Optimizations required :
 - A logging mechanism to check how many messages where created before any error occurs.
     -- completed : checked in on 7th June
 - Make changes to pick random lines from a file
+- Make it pick all the configurations from the property file
