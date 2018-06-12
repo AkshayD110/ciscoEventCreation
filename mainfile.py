@@ -25,7 +25,7 @@ def main():
 def logoutput(eventsCreated, time_taken):
     currentDateTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     with open("eventCreatedlog.txt", "a") as myfile:
-        myfile.write(f"\n Wrote {eventsCreated} new messages on {currentDateTime}. Took {time_taken} amount of time to complete")
+        myfile.write(f"\n Wrote {eventsCreated} new messages on {currentDateTime}. Took {time_taken}secs of time to complete")
 
 
 if __name__ == '__main__':
