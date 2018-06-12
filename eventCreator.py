@@ -33,6 +33,7 @@ class eventCreator:
     accesstoken = "Bearer " + str(sys.argv[1])
     roomid = sys.argv[2]
     api = CiscoSparkAPI(access_token=sys.argv[1])
+    #print(f'accesstoken: {accesstoken}, room_id : {roomid}')
     #demo_room = api.rooms.get(room_id)
 
 
