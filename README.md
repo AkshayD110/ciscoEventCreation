@@ -13,3 +13,4 @@ Optimizations required :
     -- completed : checked in on 7th June
 - Make changes to pick random lines from a file
 - Make it pick all the configurations from the property file
+- Make the changes to include restricted phrase randomly inbetween rather than all at once.
