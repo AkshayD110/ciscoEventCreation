@@ -11,6 +11,7 @@ import sys
 from ciscosparkapi import CiscoSparkAPI
 import threading
 from random import *
+import time
 
 class eventCreator:
 
@@ -55,15 +56,17 @@ class eventCreator:
     def normaltext_msg(self, text, count):
         for i in range(count):
             message = self.api.messages.create(self.roomid, text=f"some generic text here - {text} {i}")
+            time.sleep(1)
 
     def markdowntext_msg(self, text, count):
         for i in range(count):
             message = self.api.messages.create(self.roomid, markdown=f"**some generic text here - {text} {i}**" )
+            time.sleep(1)
 
     def filetrasfer_msg(self, text, count):
         for i in range(count):
             message = self.api.messages.create(self.roomid, text="some generic text here ", files=["http://hanassets.nd.gov/images/product/test.png"])
-
+            time.sleep(1)
 
     def all_restricted_msgs(self):
         #Generates 40k restricted phrases and picks one
@@ -78,14 +81,17 @@ class eventCreator:
         for i in range(restricted_normal):
             restricted_word = choice(listofphrase)
             message = self.api.messages.create(self.roomid, text=f"some generic text here and restword : {restricted_word}")
+            time.sleep(1)
 
         for i in range(restricted_markdown):
             restricted_word = choice(listofphrase)
             message = self.api.messages.create(self.roomid, markdown=f"**some generic text here and restword : {restricted_word}**")
+            time.sleep(1)
 
         for i in range(restricted_files):
             restricted_word = choice(listofphrase)
             message = self.api.messages.create(self.roomid, text=f"some generic text here and restword : {restricted_word}", files=["http://hanassets.nd.gov/images/product/test.png"])
+            time.sleep(1)
 
         print("done with creating restricted phrases")
 
