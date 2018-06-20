@@ -13,7 +13,7 @@ import time
 from datetime import datetime
 
 def main():
-    number_of_msgsToCreate = int(input("How many messages do you want to create?"))
+    #number_of_msgsToCreate = int(input("How many messages do you want to create?"))
     start = time.time()
     eventCreator_obj = eventCreator.eventCreator(number_of_msgsToCreate)
     eventCreator_obj.msg_distribution()
