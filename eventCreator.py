@@ -12,6 +12,7 @@ from ciscosparkapi import CiscoSparkAPI
 import threading
 from random import *
 import time
+import config
 
 class eventCreator:
 
@@ -39,9 +40,10 @@ class eventCreator:
 
 
     def msg_distribution(self):
-        normaltext_count = round((self.msgcount*80)/100)
-        markdowntext_count = round((self.msgcount*17.5)/100)
-        filetransfer_count = round((self.msgcount*1.5)/100)
+        #normaltext_count = round((self.msgcount*80)/100)
+        normaltext_count = config.INPUT_CONFIG['normal_messages']
+        markdowntext_count = config.INPUT_CONFIG['markdowntext_messages']
+        filetransfer_count = config.INPUT_CONFIG['filetransfer_messages']
         print(f"normal text will be : {normaltext_count}, markdown text will be : {markdowntext_count}, file transfer count will be :{filetransfer_count}")
 
         #below implementaition introduces multiThreading
@@ -72,7 +74,7 @@ class eventCreator:
         #Generates 40k restricted phrases and picks one
         listofphrase = [f'ThisIsABigResTrictedPhrase{x}' for x in range(1, 40000)]
 
-        restrictedwords_count = round((self.msgcount * 1) / 100)
+        restrictedwords_count = config.INPUT_CONFIG['restrictedwords_count']
         restricted_normal = round((restrictedwords_count * 50) / 100)
         restricted_markdown = round((restrictedwords_count * 25) / 100)
         restricted_files =  round((restrictedwords_count * 25) / 100)
