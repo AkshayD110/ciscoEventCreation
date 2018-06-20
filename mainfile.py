@@ -11,15 +11,16 @@ import eventCreator
 from multiprocessing import Process
 import time
 from datetime import datetime
+import config
 
 def main():
     #number_of_msgsToCreate = int(input("How many messages do you want to create?"))
     start = time.time()
-    eventCreator_obj = eventCreator.eventCreator(number_of_msgsToCreate)
+    eventCreator_obj = eventCreator.eventCreator(config.INPUT_CONFIG['Total_messages_to_create'])
     eventCreator_obj.msg_distribution()
     time_taken = time.time() - start #line 17 and line20 account the time taken between them.
     print(time_taken)
-    logoutput(number_of_msgsToCreate, time_taken)
+    logoutput(config.INPUT_CONFIG['Total_messages_to_create'], time_taken)
     print("done")
 
 def logoutput(eventsCreated, time_taken):
