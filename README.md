@@ -16,3 +16,4 @@ Optimizations required :
     - messages count is picked from config file now
 - Make the changes to include restricted phrase randomly in-between rather than all at once.
 - Include test cases and unit tests
+- Include the comments for code sections
