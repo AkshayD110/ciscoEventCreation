@@ -14,4 +14,5 @@ Optimizations required :
 - Make changes to pick random lines from a file
 - Make it pick all the configurations from the property file
     - messages count is picked from config file now
-- Make the changes to include restricted phrase randomly inbetween rather than all at once.
+- Make the changes to include restricted phrase randomly in-between rather than all at once.
+- Include test cases and unit tests
