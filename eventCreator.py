@@ -74,7 +74,7 @@ class eventCreator:
         #Generates 40k restricted phrases and picks one
         listofphrase = [f'ThisIsABigResTrictedPhrase{x}' for x in range(1, 40000)]
 
-        restrictedwords_count = config.INPUT_CONFIG['restrictedwords_count']
+        restrictedwords_count = config.INPUT_CONFIG['restricted_messages']
         restricted_normal = round((restrictedwords_count * 50) / 100)
         restricted_markdown = round((restrictedwords_count * 25) / 100)
         restricted_files =  round((restrictedwords_count * 25) / 100)
