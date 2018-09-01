@@ -1,11 +1,12 @@
 # This file contains all the config parameters to be read and used for the script
 
-totalmessages = 2
+totalmessages = 10
 normaltext_count = round((totalmessages * 80) / 100)
 markdowntext_count = round((totalmessages * 17.5) / 100)
 filetransfer_count = round((totalmessages * 1.5) / 100)
 restrictedwords_count = round((totalmessages * 1) / 100)
-
+roomids= ["get room ids here"]
+userid="user id here"
 
 INPUT_CONFIG = {
     'accesstoken': '<-User Access Token here->',
@@ -14,6 +15,6 @@ INPUT_CONFIG = {
     'normal_messages': normaltext_count,
     'markdowntext_messages': markdowntext_count,
     'filetransfer_messages': filetransfer_count,
-    'restricted_messages': restrictedwords_count,
+    'restricted_messages': restrictedwords_count
 
 }
